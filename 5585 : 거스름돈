@@ -1,0 +1,30 @@
+import java.util.*;
+
+
+public class Main {
+	public static void main(String[] args) {
+
+			Scanner sc = new Scanner(System.in); //지불해야 하는 돈
+			int n = 1000 - sc.nextInt(); //잔돈
+
+			int cnt = 0; //잔돈 개수
+
+			//잡화점이 갖고 있는 돈의 종류
+			int[] coinTypes = {500, 100, 50, 10, 5, 1}; 
+
+			for(int i=0; i< 6; i++){
+					cnt += n / coinTypes[i];
+					n%=coinTypes[i]; 
+			}
+			System.out.println(cnt);
+	}
+}
+
+이코테 강의의 거스름돈 문제를 응용해서 풀면 되는 문제다. 사실 문제만 다르지 그냥 똑같은 문제나 다름 없다.
+
+‘언제나 거스름돈 개수가 가장 적게 잔돈을 거슬러 준다’ ⇒ 잔돈 최소 개수
+
+> 가장 큰 화폐 단위부터 돈을 거슬러 준다.
+> 
+- 현재 갖고 있는 단위가 큰 값이 작은 값의 배수이다. → 작은 값에 배를 해도 어차피 똑같다.
+- 타로가 지불할 돈 380원이면 잔돈은 1000-380 = 620원.
